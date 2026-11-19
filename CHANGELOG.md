@@ -3,6 +3,16 @@
 All notable changes are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/),
 versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.2.2] - 2026-11-19
+
+The iOS framework is built with an older Xcode again. No code change: the games, the API and the Android
+library are the same as in 0.2.1.
+
+### Changed
+
+- iOS: the framework is built with Xcode 26.6 (Swift 6.3.3), so it loads in Xcode 26.6 and newer. Releases
+  0.1.1 to 0.2.1 were built with Xcode 27.1 and need that version or newer.
+
 ## [0.2.1] - 2026-11-19
 
 Documentation only: the binaries are rebuilt from the same code as 0.2.0.

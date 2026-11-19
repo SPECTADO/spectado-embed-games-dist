@@ -23,7 +23,7 @@ version from the Releases page.
 
 | Platform | Minimum |
 |---|---|
-| iOS (Swift Package Manager) | iOS 15.1. The framework covers device arm64 and the arm64 and x86_64 simulators. Xcode 27.1 (Swift 6.4) or newer: this release was built with that version, and an older Xcode may not be able to load the framework. |
+| iOS (Swift Package Manager) | iOS 15.1. The framework covers device arm64 and the arm64 and x86_64 simulators. Xcode 26.6 (Swift 6.3.3) or newer: this release was built with that version, and an older Xcode may not be able to load the framework. |
 | Android (Gradle) | minSdk 24, compileSdk 35. The library has been tested with AGP 8.13 and Kotlin 2.0.21. It does not need Compose or AppCompat. |
 | Expo / React Native | Expo SDK 53 or newer, in a development build or an EAS build. Expo Go is **not** supported because the library contains native code. The library has been built and run on SDK 58. The iOS deployment target follows your Expo SDK, for example iOS 16.4 on SDK 58. iOS builds need the Xcode version named in the first row. |
 
@@ -215,7 +215,7 @@ Each game is portrait. The full-screen game screens are locked to portrait.
 6. **Troubleshooting**
 
    - Xcode cannot load the module `SpectadoEmbedGames` (for example, "compiled with a newer Swift compiler"):
-     your Xcode is older than the one that built the release (Xcode 27.1, see
+     your Xcode is older than the one that built the release (Xcode 26.6, see
      [Requirements](#requirements)). Update Xcode.
    - Name clash: the public types have plain names (`GameConfig`, `GameResult`, `GameTheme`, `Sport`).
      If your app has a type with the same name, qualify ours with the module name, for example
