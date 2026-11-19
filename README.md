@@ -569,8 +569,39 @@ Android contract all deliver the same object.
 
 The library uses [Semantic Versioning](https://semver.org/). All three channels share one version, and
 each release is the git tag `vX.Y.Z` of this repository, with the XCFramework and the Expo tarball
-attached to its GitHub Release. Released versions are never changed. Pin an exact version in production
-apps. For the history, see [CHANGELOG.md](CHANGELOG.md).
+attached to its GitHub Release. Released versions are never changed. For the history, see
+[CHANGELOG.md](CHANGELOG.md).
+
+You can either follow the newest release or pin one version. Both are supported on every channel:
+
+| Channel | Follow the newest release | Pin one version |
+|---|---|---|
+| Expo / React Native | run the update command below whenever you want the newest release | keep the tarball URL of that version in `package.json` |
+| Swift (SPM) | `.package(url: "…/spectado-embed-games-dist.git", from: "0.1.1")`, then **File > Packages > Update to Latest Package Versions** (or `swift package update`) | `.package(url: "…", exact: "X.Y.Z")` |
+| Kotlin (Gradle) | `implementation("com.spectado:embed-games:latest.release")` | `implementation("com.spectado:embed-games:X.Y.Z")` |
+
+**Expo: install or update to the newest release.** The same command does both. It asks GitHub which release
+is the latest and installs that version's tarball, so `package.json` and the lockfile still name an exact
+version and `npm ci` stays reproducible:
+
+```sh
+v=$(curl -sIL -o /dev/null -w '%{url_effective}' https://github.com/SPECTADO/spectado-embed-games-dist/releases/latest)
+v=${v##*/v}
+npm install "https://github.com/SPECTADO/spectado-embed-games-dist/releases/download/v$v/spectado-embed-games-$v.tgz"
+```
+
+Things to know before you follow the newest release:
+
+- **Nothing updates by itself in a built app.** A new version reaches your users only after you update the
+  dependency and rebuild the native app. With SPM, `Package.resolved` keeps the resolved version until you
+  update packages; with npm, the lockfile does.
+- **Gradle resolves `latest.release` at build time** (Gradle caches the answer for 24 hours), so two builds
+  of the same commit can contain different versions. Use
+  [dependency locking](https://docs.gradle.org/current/userguide/dependency_locking.html) or an exact
+  version for release builds.
+- **A release can change gameplay** without changing the API (0.2.0 changed the controls of the shooting
+  games). Read the changelog and play the games before you ship an update. While the version is `0.x`, a
+  minor release may also change the API.
 
 ## Licence
 

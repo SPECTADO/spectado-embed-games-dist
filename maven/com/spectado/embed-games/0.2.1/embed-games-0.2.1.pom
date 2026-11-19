@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.spectado</groupId>
+  <artifactId>embed-games</artifactId>
+  <version>0.2.1</version>
+  <packaging>aar</packaging>
+  <name>Spectado Embed Games</name>
+  <description>Small sports mini-games (football, hockey, basketball) to embed in Android apps.</description>
+  <url>https://github.com/SPECTADO/spectado-embed-games-dist</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://github.com/SPECTADO/spectado-embed-games-dist/blob/main/LICENSE</url>
+    </license>
+  </licenses>
+  <dependencies>
+    <dependency>
+      <groupId>androidx.activity</groupId>
+      <artifactId>activity</artifactId>
+      <version>1.7.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib</artifactId>
+      <version>2.0.21</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

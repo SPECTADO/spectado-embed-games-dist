@@ -3,6 +3,15 @@
 All notable changes are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/),
 versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.2.1] - 2026-11-19
+
+Documentation only: the binaries are rebuilt from the same code as 0.2.0.
+
+### Documentation
+
+- README: how to follow the newest release on each channel (Expo update command, SPM `from:`, Gradle
+  `latest.release`) and how to pin one version.
+
 ## [0.2.0] - 2026-11-19
 
 A gameplay change: the shooting games are now controlled by a true swipe and are harder. There is **no API
