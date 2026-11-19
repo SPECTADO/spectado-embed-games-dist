@@ -341,7 +341,16 @@ Each game is portrait. The full-screen game screens are locked to portrait.
 
 All seven games share the same frame. A ready screen shows a hint until the player makes the first move,
 and that move starts the game: the first shot, the first tap on the ball, or the first drag. A touch that
-is not a valid move, for example a tap next to the ball in Keepy-Uppy, leaves the ready screen showing. The
+is not a valid move, for example a tap next to the ball in Keepy-Uppy, leaves the ready screen showing.
+
+The five shooting games (Penalty Flick, Crossbar Challenge, Hockey Shootout, Top Shelf, Buzzer Beater) all use
+the same control: a quick **swipe (flick)**. Only the fast final motion of the finger counts: its direction
+aims and its speed sets the power. Nothing shows where the shot will go while the finger is down. A slow drag,
+a finger that stops before it lifts, or a swipe away from the goal does not shoot; after a couple of such
+tries a small "Swipe faster!" (or, after a swipe in the wrong direction, "Swipe up!") reminder appears. The
+swipe may start anywhere in the lower part of the play area and feels the same on a small phone, a large
+phone and a tablet. A very hard flick goes over the goal. Keepy-Uppy (tap) and Table Hockey (drag the
+paddle) are not swipe games. The
 close (X) button is always available, and most games also have a pause button. When a game ends, a result screen shows the score, the best score, **Play again** and **Done**.
 
 ### Penalty Flick · `penalty-flick` · football
@@ -350,7 +359,9 @@ close (X) button is always available, and most games also have a pause button. W
 
 You take a penalty shootout against a goalkeeper who reads your shots a little better each round.
 
-- **Controls:** swipe up to shoot. Curve the swipe to bend the ball.
+- **Controls:** flick the ball towards the goal with a quick swipe. The direction of the flick aims the shot,
+  and a faster flick is harder and higher (too fast goes over the bar). A curved flick bends the ball. Nothing
+  shows where the shot will go before you let go, and a slow drag does not shoot.
 - **Scoring:** each goal is 1 point, so the score is 0–5.
 - **Length:** 5 shots, about half a minute.
 - **Options:** none. There is no pause button.
@@ -365,10 +376,13 @@ You take a penalty shootout against a goalkeeper who reads your shots a little b
 You shoot from distance and try to hit the woodwork and the top corners. A wind that changes every few
 shots pushes the ball sideways.
 
-- **Controls:** swipe up to shoot. The swipe's direction and length set where the ball goes, and the wind
-  pushes it sideways.
-- **Scoring:** crossbar or post +50, top bins +30. Consecutive woodwork hits build a multiplier up to ×5,
-  and a miss resets it. A plain goal scores +10.
+- **Controls:** flick up towards the goal with a quick swipe. The direction of the flick aims left or right,
+  and only its speed sets the height: a gentle flick stays on the ground, a hard one reaches the crossbar, and
+  harder still goes over. A curved flick bends the ball. The wind pushes the ball sideways: allow for it
+  when you go for a post or a top corner.
+  Nothing shows where the ball will go before you let go, and a slow drag does not shoot.
+- **Scoring:** crossbar or post +50, top bins +30. Every woodwork or top-bins hit raises a multiplier, up to
+  ×5, that applies to these hits; a plain goal scores +10 and keeps the multiplier, a miss resets it.
 - **Length:** 60 seconds.
 - **Options:** none. There is no pause button.
 - **`details`:** `shots`, `crossbars`, `posts`, `topBins`, `goals`, `missed`, `bestCombo`
@@ -397,8 +411,9 @@ growing, so every run ends.
 
 You play a shootout against the CPU. You take turns: you shoot, then you are the goalie for the CPU's shot.
 
-- **Controls:** to shoot, pull back from the puck and release. The pull length sets the power and the angle
-  sets the side. Drag sideways to deke. As the goalie, drag left or right to move.
+- **Controls:** to shoot, swipe quickly towards the net. The direction of the swipe aims, its speed sets the
+  power: a harder shot flies higher, too hard goes over the net. Curve the swipe to deke. As the goalie, drag
+  left or right to move.
 - **Scoring:** the score is your goals. `won` is `true` when you score more goals than the CPU.
 - **Length:** 5 rounds, then sudden death if the score is tied.
 - **Options:** none.
@@ -412,7 +427,9 @@ You play a shootout against the CPU. You take turns: you shoot, then you are the
 
 You shoot pucks at five round targets in the net. One target is lit, and the lit target scores double.
 
-- **Controls:** flick the puck towards the net.
+- **Controls:** flick towards the net with a quick swipe. The direction of the flick aims left or right, and
+  only its speed sets the height: a gentle flick slides along the ice, a hard one goes top shelf. Nothing shows
+  where the puck will land before you lift your finger, and a slow drag does not shoot.
 - **Scoring:** a target is worth 200–300 points, and the lit target is worth ×2. Clearing all five targets
   adds +1,000, and then the targets come back. A goal that misses every target scores +50.
 - **Length:** 10 pucks or 45 seconds, whichever runs out first.
@@ -445,7 +462,8 @@ An air hockey duel on a neon table, against the CPU or against a friend on the s
 
 You shoot as many baskets as you can before the buzzer. After a few makes, the hoop starts to move.
 
-- **Controls:** swipe up to shoot. The swipe's direction aims the shot, and its length and speed set the power.
+- **Controls:** flick up to shoot with a quick swipe. The direction of the flick aims the shot, and only its speed
+  sets how far the ball goes: flick harder when the hoop moves further away. A slow drag does not shoot.
 - **Scoring:** a swish is +3 and any other make is +2. Every 3 makes in a row raise the multiplier, up to ×4.
 - **Length:** 45 seconds.
 - **Options:** none.
