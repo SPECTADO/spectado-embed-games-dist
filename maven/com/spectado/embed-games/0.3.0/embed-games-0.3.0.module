@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.spectado",
+    "module": "embed-games",
+    "version": "0.3.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.activity",
+          "module": "activity",
+          "version": {
+            "requires": "1.7.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "embed-games-0.3.0.aar",
+          "url": "embed-games-0.3.0.aar",
+          "size": 358403,
+          "sha512": "1ad7737e7b15c4bd85c0502e783beed677d3d73a6015393297296333a7e89fcb2d098de9afafd41d14156b25904e64184f52a35b6f5a748d98e880bc71a7f21b",
+          "sha256": "f9accd40c2d4d31b76942b242363f13ae7c5e6f29dfbdc7a560bdcd01aef1e3d",
+          "sha1": "9ee14511aa95adaa388d84f02bd31a386374b3fb",
+          "md5": "68d4e00e2036f6a4fde6f6e335062e7d"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.activity",
+          "module": "activity",
+          "version": {
+            "requires": "1.7.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "embed-games-0.3.0.aar",
+          "url": "embed-games-0.3.0.aar",
+          "size": 358403,
+          "sha512": "1ad7737e7b15c4bd85c0502e783beed677d3d73a6015393297296333a7e89fcb2d098de9afafd41d14156b25904e64184f52a35b6f5a748d98e880bc71a7f21b",
+          "sha256": "f9accd40c2d4d31b76942b242363f13ae7c5e6f29dfbdc7a560bdcd01aef1e3d",
+          "sha1": "9ee14511aa95adaa388d84f02bd31a386374b3fb",
+          "md5": "68d4e00e2036f6a4fde6f6e335062e7d"
+        }
+      ]
+    }
+  ]
+}

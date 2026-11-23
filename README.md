@@ -1,13 +1,13 @@
 # Spectado Embed Games
 
-Seven small sports mini-games (football, hockey, basketball) that you can add to an existing iOS, Android or
+Nine small sports mini-games (football, hockey, basketball, volleyball, mini golf) that you can add to an existing iOS, Android or
 Expo / React Native app. The games are native code: Swift on iOS, Kotlin on Android. Everything is drawn
 with vectors, so the library has no image or sound assets and no third-party runtime dependencies (on
 Android it needs only `androidx.activity`). You can theme the games with your club colours, team name and
 logo. The text is in Czech, Slovak and English. A game opens full screen or inside your own layout, and it
 gives your app a result object when it ends.
 
-![The seven games](docs/screenshots/overview.png)
+![The nine games](docs/screenshots/overview.png)
 
 This repository holds the prebuilt binaries: an XCFramework for Swift Package Manager, an AAR in a Maven
 repository, and an Expo package on every [GitHub Release](https://github.com/SPECTADO/spectado-embed-games-dist/releases).
@@ -339,7 +339,7 @@ Each game is portrait. The full-screen game screens are locked to portrait.
 
 ## The games
 
-All seven games share the same frame. A ready screen shows a hint until the player makes the first move,
+All nine games share the same frame. A ready screen shows a hint until the player makes the first move,
 and that move starts the game: the first shot, the first tap on the ball, or the first drag. A touch that
 is not a valid move, for example a tap next to the ball in Keepy-Uppy, leaves the ready screen showing.
 
@@ -350,7 +350,8 @@ a finger that stops before it lifts, or a swipe away from the goal does not shoo
 tries a small "Swipe faster!" (or, after a swipe in the wrong direction, "Swipe up!") reminder appears. The
 swipe may start anywhere in the lower part of the play area and feels the same on a small phone, a large
 phone and a tablet. A very hard flick goes over the goal. Keepy-Uppy (tap) and Table Hockey (drag the
-paddle) are not swipe games. The
+paddle) are not swipe games. In Volley Rally the same swipe, upwards, makes your player jump. Mini Golf is
+the one game with an aiming aid: you pull back from the ball and see a line for direction and power. The
 close (X) button is always available, and most games also have a pause button. When a game ends, a result screen shows the score, the best score, **Play again** and **Done**.
 
 ### Penalty Flick · `penalty-flick` · football
@@ -471,6 +472,45 @@ You shoot as many baskets as you can before the buzzer. After a few makes, the h
 
 <br clear="right">
 
+### Volley Rally · `volley-rally` · volleyball
+
+<img src="docs/screenshots/volley-rally.png" width="220" align="right" alt="Volley Rally">
+
+A one-on-one volleyball rally against the CPU, seen from the side.
+
+- **Controls:** slide your finger left and right and your player follows it. The ball is bumped when it
+  touches the player, and where it meets the player decides where it goes. A quick swipe up makes the player
+  jump; a ball touched in the air is a spike. A slow drag never jumps.
+- **Rules:** a point goes to the other side when the ball lands on your floor or your side touches it more
+  than 3 times in a row. The winner of a point serves; the serve is automatic.
+- **Scoring:** the score is your points. `won` is `true` when you reach 7 first.
+- **Length:** the first side to 7 points wins.
+- **Options:** `difficulty`: `easy`, `normal` (default) or `hard`.
+- **`details`:** `pointsFor`, `pointsAgainst`, `spikes`, `longestRally` (most touches in one rally, the serve
+  included)
+
+<br clear="right">
+
+### Mini Golf · `mini-golf` · golf
+
+<img src="docs/screenshots/mini-golf.png" width="220" align="right" alt="Mini Golf">
+
+A round of six short mini golf holes seen from above: a straight one, a dog-leg, a block, a narrow gap, a
+sliding bar and a long last hole. The holes are the same in every round.
+
+- **Controls:** pull back and release. While the ball rests, put a finger down anywhere and drag: a dotted
+  line from the ball shows the direction (opposite to the drag) and the power. Lift the finger to putt. A very
+  short pull, or dragging back to where you started, takes no stroke.
+- **Rules:** the ball drops when it rolls over the cup slowly enough; a fast ball rolls over it. You have at
+  most 6 strokes per hole, then the hole is lost and the next one starts.
+- **Scoring:** points per hole by strokes: 500 for a hole in one, then 300, 200, 150, 100 and 50; a lost hole
+  scores 0. The best round is 3,000 points.
+- **Length:** 6 holes.
+- **Options:** none.
+- **`details`:** `strokes` (all holes together), `holesInOne`, `holesCompleted`
+
+<br clear="right">
+
 ## Customization
 
 <img src="docs/screenshots/custom-theme.png" width="220" alt="Team theme with name and logo">
@@ -484,7 +524,7 @@ it as props. In Swift it is `GameConfig(…)` and in Kotlin `GameConfig(…)`.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `game` | game id | required | One of the seven ids. In Swift use `.penaltyFlick`; in Kotlin use `SpectadoGame.penaltyFlick`. |
+| `game` | game id | required | One of the nine ids. In Swift use `.penaltyFlick`; in Kotlin use `SpectadoGame.penaltyFlick`. |
 | `theme.primaryColor` | `"#RRGGBB"` | game palette | The club's main colour: jerseys, boards, your side. |
 | `theme.secondaryColor` | `"#RRGGBB"` | game palette | The supporting colour: the opponent and secondary surfaces. |
 | `theme.accentColor` | `"#RRGGBB"` | game palette | The highlight colour: score popups, targets, the primary button. |
@@ -520,6 +560,7 @@ SharedPreferences). The best score shown in the game and returned in the result 
 |---|---|---|
 | `table-hockey` | `mode` | `cpu`, `twoPlayers` |
 | `table-hockey` | `difficulty` | `normal`, `easy`, `hard` (CPU mode) |
+| `volley-rally` | `difficulty` | `normal`, `easy`, `hard` |
 | all other games | none | none |
 
 **What cannot be customised:** game rules, lengths and scoring, the text and its languages, fonts, the
@@ -537,7 +578,7 @@ Android contract all deliver the same object.
 |---|---|---|---|---|
 | `gameId` | `GameId` | `String` | `String` | The game id, for example `"penalty-flick"`. |
 | `score` | `number` | `Int` | `Int` | The final score. Higher is better. |
-| `won` | `boolean?` | `Bool?` | `Boolean?` | Set only by the versus games (`hockey-shootout`, `table-hockey`). |
+| `won` | `boolean?` | `Bool?` | `Boolean?` | Set only by the versus games (`hockey-shootout`, `table-hockey`, `volley-rally`). |
 | `durationMs` | `number` | `Int` | `Int` | The time actually played, without pauses. |
 | `completed` | `boolean` | `Bool` | `Boolean` | `true` once the game has ended. `false` when the player closed it (X or back) or your app dismissed it before the end. |
 | `bestScore` | `number` | `Int` | `Int` | The best score after this play. |

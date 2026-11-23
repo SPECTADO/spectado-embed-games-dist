@@ -3,6 +3,23 @@
 All notable changes are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/),
 versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] - 2026-11-23
+
+Two new games. Existing games, `GameConfig` and `GameResult` are unchanged; the only API addition is the two
+new game ids and the two new values of `Sport`.
+
+### Added
+- `volley-rally` (sport `volleyball`): a one-on-one volleyball rally against the CPU, first to 7 points. Your
+  player follows your finger, bumps the ball on contact and jumps for a spike on a quick swipe up. Option
+  `difficulty`: `easy`, `normal` (default), `hard`. `won` is set; `details`: `pointsFor`, `pointsAgainst`,
+  `spikes`, `longestRally`.
+- `mini-golf` (sport `golf`): a round of six short mini golf holes seen from above, at most 6 strokes per hole,
+  500 points for a hole in one down to 50 for the sixth stroke. Controlled by pulling back from the ball and
+  releasing; unlike the swipe games it shows a line for direction and power while the finger is down.
+  `details`: `strokes`, `holesInOne`, `holesCompleted`.
+- `Sport` has two new values, `volleyball` and `golf` (Swift, Kotlin and the TypeScript `Sport` type). An
+  exhaustive `switch` / `when` over `Sport` or `SpectadoGame` in host code needs the new cases.
+
 ## [0.2.2] - 2026-11-19
 
 The iOS framework is built with an older Xcode again. No code change: the games, the API and the Android
